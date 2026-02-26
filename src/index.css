@@ -1,1 +1,128 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-iron-black text-white antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  * {
+    @apply box-border;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-iron-red hover:bg-iron-red-dark text-white font-bold py-3 px-8 rounded-none transition-all duration-300 uppercase tracking-widest text-sm;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+
+  .btn-outline {
+    @apply border-2 border-white hover:border-iron-red hover:text-iron-red text-white font-bold py-3 px-8 rounded-none transition-all duration-300 uppercase tracking-widest text-sm;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+
+  .section-title {
+    @apply font-display text-4xl md:text-5xl font-bold uppercase tracking-wider text-white;
+  }
+
+  .section-subtitle {
+    @apply text-iron-gray-light text-lg mt-4;
+  }
+
+  .card-dark {
+    @apply bg-iron-dark-2 border border-iron-dark-4 hover:border-iron-red transition-all duration-300;
+  }
+
+  .iron-text-red {
+    @apply text-iron-red;
+  }
+
+  .nav-link {
+    @apply text-sm font-semibold uppercase tracking-widest text-gray-300 hover:text-iron-red transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dc2626;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ef4444;
+}
+
+/* Clip path for angled elements */
+.angle-cut {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.angle-cut-reverse {
+  clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Gradient overlay */
+.hero-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+.dark-overlay {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Red underline accent */
+.red-underline {
+  position: relative;
+}
+
+.red-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: #dc2626;
+}
+
+.red-underline-center::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
