@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon, Dumbbell } from 'lucide-react';
-import { useTheme } from '../context/ThemeContext.jsx';
+import { Menu, X, Dumbbell } from 'lucide-react';
+
 import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
@@ -15,7 +15,6 @@ const navLinks = [
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { toggleTheme, isDark } = useTheme();
   const location = useLocation(); // <-- detect current path
 
   useEffect(() => {
@@ -67,14 +66,7 @@ const Navbar: React.FC = () => {
 
             {/* Right Actions */}
             <div className="flex items-center gap-4">
-              {/* Theme Toggle */}
-              <button
-                onClick={toggleTheme}
-                className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-700 hover:border-red-500 transition-all duration-200 text-gray-300 hover:text-red-400"
-                aria-label="Toggle theme"
-              >
-                {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-              </button>
+              
 
               {/* CTA Button */}
               <Link to="/pricing" className="hidden md:block btn-primary text-xs py-2.5 px-6">
