@@ -1,0 +1,38 @@
+export const testimonials = [
+  {
+    id: 1,
+    name: 'James Rodriguez',
+    role: 'Member Since 2021',
+    image: 'https://cdn.pixabay.com/photo/2016/11/29/09/10/man-1868632_1280.jpg',
+    rating: 5,
+    text: 'IronCore completely transformed my physique and mindset. In just 8 months, I went from 220lbs to a shredded 185lbs. The trainers here are world-class and the facilities are incredible.',
+    transformation: 'Lost 35 lbs in 8 months',
+  },
+  {
+    id: 2,
+    name: 'Emily Watson',
+    role: 'Member Since 2022',
+    image: 'https://cdn.pixabay.com/photo/2016/11/22/22/25/abs-1850926_1280.jpg',
+    rating: 5,
+    text: 'I\'ve been to many gyms but IronCore is on a different level. The programming is intelligent, the community is motivating, and the results speak for themselves. I hit my first pull-up at 40!',
+    transformation: 'First pull-up at age 40',
+  },
+  {
+    id: 3,
+    name: 'Michael Torres',
+    role: 'Member Since 2020',
+    image: 'https://cdn.pixabay.com/photo/2017/11/07/21/40/workout-2928385_1280.jpg',
+    rating: 5,
+    text: 'The personalized training programs at IronCore are unmatched. My trainer designed a program around my schedule and injuries. I\'m stronger now at 45 than I was at 25. Best investment I\'ve ever made.',
+    transformation: 'Added 80lbs to deadlift',
+  },
+  {
+    id: 4,
+    name: 'Amanda Foster',
+    role: 'Member Since 2023',
+    image: 'https://cdn.pixabay.com/photo/2017/08/16/09/46/female-2646996_1280.jpg',
+    rating: 5,
+    text: 'From yoga classes to HIIT sessions, IronCore has everything. The 24/7 access fits perfectly with my busy schedule. I\'ve lost 25 lbs and gained so much confidence. Highly recommend!',
+    transformation: 'Lost 25 lbs, gained confidence',
+  },
+];

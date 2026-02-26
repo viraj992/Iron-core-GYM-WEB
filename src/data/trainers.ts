@@ -1,0 +1,58 @@
+export const trainers = [
+  {
+    id: 1,
+    name: 'Marcus Steel',
+    specialization: 'Strength & Powerlifting',
+    experience: '12 Years',
+    image: 'https://cdn.pixabay.com/photo/2016/11/29/09/10/man-1868632_1280.jpg',
+    bio: 'Former competitive powerlifter turned elite coach. Specializes in strength programming and injury prevention.',
+    socials: {
+      instagram: '#',
+      twitter: '#',
+      linkedin: '#',
+    },
+    certifications: ['NSCA-CSCS', 'USAPL Coach'],
+  },
+  {
+    id: 2,
+    name: 'Sarah Knox',
+    specialization: 'CrossFit & HIIT',
+    experience: '8 Years',
+    image: 'https://cdn.pixabay.com/photo/2016/11/22/22/25/abs-1850926_1280.jpg',
+    bio: 'CrossFit Level 3 trainer with a passion for functional fitness and athletic performance.',
+    socials: {
+      instagram: '#',
+      twitter: '#',
+      linkedin: '#',
+    },
+    certifications: ['CrossFit L3', 'NASM-CPT'],
+  },
+  {
+    id: 3,
+    name: 'David Cruz',
+    specialization: 'Bodybuilding & Nutrition',
+    experience: '10 Years',
+    image: 'https://cdn.pixabay.com/photo/2017/11/07/21/40/workout-2928385_1280.jpg',
+    bio: 'IFBB Pro League competitor with expertise in contest prep, body recomposition and sports nutrition.',
+    socials: {
+      instagram: '#',
+      twitter: '#',
+      linkedin: '#',
+    },
+    certifications: ['IFBB Pro', 'PN Level 2'],
+  },
+  {
+    id: 4,
+    name: 'Lisa Chen',
+    specialization: 'Yoga & Flexibility',
+    experience: '6 Years',
+    image: 'https://cdn.pixabay.com/photo/2015/07/02/10/22/training-828726_1280.jpg',
+    bio: 'RYT-500 certified yoga instructor specializing in mobility, flexibility, and mind-body connection.',
+    socials: {
+      instagram: '#',
+      twitter: '#',
+      linkedin: '#',
+    },
+    certifications: ['RYT-500', 'FRC Mobility Specialist'],
+  },
+];
