@@ -1,3 +1,3 @@
-![programs](./assets/programs.png)
-![trainers](./assets/trainers.png)
-![schedule](./assets/schedule.png)
+![Programs](assets/programss.png)
+![Trainers](assets/trainerss.png)
+![Schedule](assets/scheduless.png)
