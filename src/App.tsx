@@ -1,5 +1,5 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./components/Abouts"
-import Hero from "./components/Hero"
 import Navbar from "./components/Navbar"
 import Pricing from './components/Pricing';
 import Trainers from './components/Trainers';
@@ -12,6 +12,9 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { ThemeProvider } from "./context/ThemeContext"
 import Programs from "./components/Programs";
+import HomePage from "./components/HomePage";
+import ProgramPage from "./components/ProgramPage";
+import SchedulePage from "./components/SchedulePage";
 
 
 
@@ -20,21 +23,30 @@ function App() {
 
   return (
     <ThemeProvider>
-    <div className="bg-zinc-950 min-h-screen">
-      <Navbar/>
-      <Hero/>
-      <About/>
-      <Programs />
-      <Pricing />
-      <Trainers />
-      <Schedule />
-      <BMICalculator />
-      <Testimonials />
-      <Gallery />
-      <CTA />
-      <Contact />
-      <Footer />  
-    </div>
+      <Router>
+        <div className="bg-zinc-950 min-h-screen">
+          <Navbar />
+          
+
+          <Routes>
+            <Route path="/" element={
+              <>
+                <HomePage />
+                
+              </>
+            } />
+
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/programs" element={<ProgramPage/>} />
+            <Route path="/trainers" element={<Trainers />} />
+            <Route path="/schedule" element={<SchedulePage />} />
+            <Route path="/contact" element={<Contact />} />
+
+          </Routes>
+          <Footer/>
+        </div>
+      </Router>
     </ThemeProvider>
   )
 }

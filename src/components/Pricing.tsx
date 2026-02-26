@@ -89,22 +89,7 @@ const Pricing: React.FC = () => {
             Flexible membership options designed to fit every budget and fitness goal.
           </p>
 
-          {/* Monthly/Yearly Toggle */}
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <span className={`text-sm font-semibold ${!isYearly ? 'text-white' : 'text-gray-500'}`}>Monthly</span>
-            <button
-              onClick={() => setIsYearly(!isYearly)}
-              className={`relative w-14 h-7 rounded-full transition-colors duration-300 ${isYearly ? 'bg-red-600' : 'bg-zinc-700'}`}
-            >
-              <span
-                className={`absolute top-1 w-5 h-5 rounded-full bg-white transition-transform duration-300 ${isYearly ? 'translate-x-8' : 'translate-x-1'}`}
-              />
-            </button>
-            <span className={`text-sm font-semibold ${isYearly ? 'text-white' : 'text-gray-500'}`}>
-              Yearly
-              <span className="ml-2 text-xs bg-red-600 text-white px-2 py-0.5 rounded-full">Save 17%</span>
-            </span>
-          </div>
+          
         </motion.div>
 
         {/* Pricing Cards */}
