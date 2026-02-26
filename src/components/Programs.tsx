@@ -1,21 +1,87 @@
 import React, { useState, useRef } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { ArrowRight, Clock, BarChart3 } from 'lucide-react';
-import { programs, programCategories } from '../data/programs';
+
+// Example program categories
+const programCategories = ['All', 'Strength', 'Cardio', 'Flexibility'];
+
+// Example programs data
+const programs = [
+  {
+    id: 1,
+    title: 'Personal Training',
+    category: 'strength',
+    image: 'https://cdn.pixabay.com/photo/2017/04/25/20/18/woman-2260736_1280.jpg',
+    description: 'One-on-one sessions tailored to your specific goals with certified personal trainers.',
+    duration: '60 min',
+    level: 'All Levels',
+    icon: '🏋️',
+  },
+  {
+    id: 2,
+    title: 'CrossFit',
+    category: 'strength',
+    image: 'https://cdn.pixabay.com/photo/2014/11/17/13/17/crossfit-534615_1280.jpg',
+    description: 'High-intensity functional movements that combine cardio, weightlifting, and gymnastics.',
+    duration: '45 min',
+    level: 'Intermediate',
+    icon: '⚡',
+  },
+  {
+    id: 3,
+    title: 'Bodybuilding',
+    category: 'strength',
+    image: 'https://cdn.pixabay.com/photo/2016/03/27/23/00/weight-lifting-1284616_1280.jpg',
+    description: 'Structured hypertrophy programs designed to maximize muscle mass and definition.',
+    duration: '75 min',
+    level: 'Intermediate',
+    icon: '💪',
+  },
+  {
+    id: 4,
+    title: 'Weight Loss Program',
+    category: 'cardio',
+    image: 'https://cdn.pixabay.com/photo/2016/11/22/22/24/adult-1850925_1280.jpg',
+    description: 'Comprehensive fat-burning program combining cardio, nutrition, and resistance training.',
+    duration: '50 min',
+    level: 'Beginner',
+    icon: '🔥',
+  },
+  {
+    id: 5,
+    title: 'Cardio & HIIT',
+    category: 'cardio',
+    image: 'https://cdn.pixabay.com/photo/2017/08/16/09/46/female-2646996_1280.jpg',
+    description: 'High-Intensity Interval Training to maximize calorie burn and boost cardiovascular health.',
+    duration: '40 min',
+    level: 'All Levels',
+    icon: '❤️',
+  },
+  {
+    id: 6,
+    title: 'Yoga & Flexibility',
+    category: 'flexibility',
+    image: 'https://cdn.pixabay.com/photo/2015/01/18/23/08/mobility-603558_1280.jpg',
+    description: 'Improve flexibility, balance, and mindfulness with our expert-led yoga classes.',
+    duration: '60 min',
+    level: 'All Levels',
+    icon: '🧘',
+  },
+];
 
 const Programs: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
-  const filtered = activeFilter === 'All'
-    ? programs
-    : programs.filter(p => p.category === activeFilter.toLowerCase());
+  // Filter programs based on selected category
+  const filteredPrograms =
+    activeFilter === 'All'
+      ? programs
+      : programs.filter(p => p.category === activeFilter.toLowerCase());
 
   return (
     <section id="programs" className="py-24 bg-black relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(127,29,29,0.15)_0%,_transparent_60%)]" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         {/* Header */}
         <motion.div
@@ -40,7 +106,7 @@ const Programs: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex flex-wrap gap-3 justify-center mb-12"
         >
-          {programCategories.map((cat) => (
+          {programCategories.map(cat => (
             <button
               key={cat}
               onClick={() => setActiveFilter(cat)}
@@ -58,7 +124,7 @@ const Programs: React.FC = () => {
         {/* Program Grid */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
-            {filtered.map((program, i) => (
+            {filteredPrograms.map((program, i) => (
               <motion.div
                 key={program.id}
                 layout
@@ -68,7 +134,6 @@ const Programs: React.FC = () => {
                 transition={{ duration: 0.3, delay: i * 0.05 }}
                 whileHover={{ y: -8 }}
                 className="group overflow-hidden bg-zinc-900 border border-zinc-800 hover:border-red-600/50 transition-all duration-300 cursor-pointer"
-                style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.4)' }}
               >
                 {/* Image */}
                 <div className="relative h-52 overflow-hidden">

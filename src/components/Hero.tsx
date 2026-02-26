@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const stats = [
   { value: 5000, suffix: '+', label: 'Members' },
@@ -49,6 +50,7 @@ const StatItem: React.FC<{ value: number; suffix: string; label: string; delay: 
 const Hero: React.FC = () => {
   const [statsInView, setStatsInView] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -76,7 +78,6 @@ const Hero: React.FC = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
-        {/* Red glow effect */}
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-900/20 blur-[120px] rounded-full" />
       </div>
 
@@ -129,14 +130,17 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="flex flex-wrap gap-4 mt-10"
           >
+            {/* Join Now -> Pricing Page */}
             <button
-              onClick={() => document.querySelector('#pricing')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => navigate("/pricing")}
               className="btn-primary text-sm py-4 px-10"
             >
               Join Now
             </button>
+
+            {/* View Programs -> ProgramPage */}
             <button
-              onClick={() => document.querySelector('#programs')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => navigate("/programs")}
               className="btn-outline text-sm py-4 px-10"
             >
               View Programs

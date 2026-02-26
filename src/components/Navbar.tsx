@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon, Dumbbell } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext.jsx';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
   { label: 'Home', path: '/' },
-  
   { label: 'Programs', path: '/programs' },
-  
   { label: 'Pricing', path: '/pricing' },
   { label: 'Schedule', path: '/schedule' },
   { label: 'Contact', path: '/contact' },
@@ -18,11 +16,10 @@ const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { toggleTheme, isDark } = useTheme();
+  const location = useLocation(); // <-- detect current path
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -43,10 +40,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center justify-between h-20">
 
             {/* Logo */}
-            <Link
-              to="/"
-              className="flex items-center gap-2 cursor-pointer"
-            >
+            <Link to="/" className="flex items-center gap-2 cursor-pointer">
               <div className="w-8 h-8 bg-red-600 flex items-center justify-center">
                 <Dumbbell className="w-5 h-5 text-white" />
               </div>
@@ -62,7 +56,9 @@ const Navbar: React.FC = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="nav-link"
+                  className={`nav-link ${
+                    location.pathname === link.path ? 'text-iron-red' : ''
+                  }`}
                 >
                   {link.label}
                 </Link>
@@ -71,25 +67,17 @@ const Navbar: React.FC = () => {
 
             {/* Right Actions */}
             <div className="flex items-center gap-4">
-
               {/* Theme Toggle */}
               <button
                 onClick={toggleTheme}
                 className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-700 hover:border-red-500 transition-all duration-200 text-gray-300 hover:text-red-400"
                 aria-label="Toggle theme"
               >
-                {isDark ? (
-                  <Sun className="w-4 h-4" />
-                ) : (
-                  <Moon className="w-4 h-4" />
-                )}
+                {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
               </button>
 
               {/* CTA Button */}
-              <Link
-                to="/pricing"
-                className="hidden md:block btn-primary text-xs py-2.5 px-6"
-              >
+              <Link to="/pricing" className="hidden md:block btn-primary text-xs py-2.5 px-6">
                 Join Now
               </Link>
 
@@ -99,11 +87,7 @@ const Navbar: React.FC = () => {
                 className="lg:hidden w-9 h-9 flex items-center justify-center text-white"
                 aria-label="Toggle menu"
               >
-                {mobileOpen ? (
-                  <X className="w-5 h-5" />
-                ) : (
-                  <Menu className="w-5 h-5" />
-                )}
+                {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
 
@@ -132,7 +116,9 @@ const Navbar: React.FC = () => {
                     key={link.path}
                     to={link.path}
                     onClick={() => setMobileOpen(false)}
-                    className="text-left text-lg font-semibold uppercase tracking-widest text-gray-300 hover:text-red-400 transition-colors py-2 border-b border-zinc-800"
+                    className={`text-left text-lg font-semibold uppercase tracking-widest py-2 border-b border-zinc-800 transition-colors ${
+                      location.pathname === link.path ? 'text-iron-red' : 'text-gray-300 hover:text-red-400'
+                    }`}
                   >
                     {link.label}
                   </Link>

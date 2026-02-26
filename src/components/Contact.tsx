@@ -1,17 +1,17 @@
 import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, Send, ChevronRight } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 
 const contactInfo = [
   {
     icon: MapPin,
     label: 'Address',
-    value: '2847 Iron Ave, Fitness District\nNew York, NY 10001',
+    value: 'No. 15, 2nd Lane, Colombo \n00300 SRI LANKA',
   },
   {
     icon: Phone,
     label: 'Phone',
-    value: '+1 (555) 426-7663',
+    value: '011 555 7663',
   },
   {
     icon: Mail,
@@ -177,7 +177,7 @@ const Contact: React.FC = () => {
                 <p className="text-gray-500 text-sm text-center">
                   Or call us directly at{' '}
                   <a href="tel:+15554267663" className="text-red-400 hover:text-red-300 font-semibold">
-                    +1 (555) 426-7663
+                    011 555 7663
                   </a>
                 </p>
               </div>
